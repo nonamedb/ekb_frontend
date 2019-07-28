@@ -35,6 +35,7 @@ export default class BarChart extends Vue {
     };
 
     private options: Chart.ChartOptions = {
+        // @ts-ignore
         legend: false,
         scaleBeginAtZero: false,
         responsive: true,
@@ -43,11 +44,13 @@ export default class BarChart extends Vue {
             displayColors: false,
         },
         scales: {
+            // @ts-ignore
             minBarLength: 10,
         },
     };
 
     private mounted(): void {
+        // @ts-ignore
         this.renderChart(this.chartdata, this.options);
     }
 }

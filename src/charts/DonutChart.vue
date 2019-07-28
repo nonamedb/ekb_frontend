@@ -28,6 +28,7 @@ export default class DonutChart extends Vue {
             position: 'bottom',
         },
         maintainAspectRatio: false,
+        // @ts-ignore
         tooltips: {
             enabled: true,
             backgroundColor: 'white',
@@ -38,6 +39,7 @@ export default class DonutChart extends Vue {
     };
 
     private mounted(): void {
+        // @ts-ignore
         this.renderChart(this.chartdata, this.options);
     }
 }

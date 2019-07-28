@@ -13,7 +13,6 @@ class App extends VuexModule {
         try {
             this.loadingStart();
             const res = await http.get('prediction/');
-            console.log(res.data.data);
             this.setPredictions(res.data.data);
             this.loadingEnd();
         } catch (e) {
@@ -31,7 +30,7 @@ class App extends VuexModule {
             });
 
             const formData = new FormData();
-            console.log(formedData)
+            console.log(formedData);
             formData.append('data', JSON.stringify(formedData));
             const res = await http.post('prediction/', formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },

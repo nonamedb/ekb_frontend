@@ -6,6 +6,7 @@
                 <AppInput v-model.number="p.students" :label="p.label"></AppInput>
             </li>
         </ul>
+        <AppButton :click="handleClick">Предсказать</AppButton>
     </div>
 </template>
 
@@ -14,10 +15,11 @@ import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
 import BarChart from '@/charts/BarChart.vue';
 import { IBarData } from '../store/types';
 import AppInput from '@/components/AppInput.vue';
+import AppButton from '@/components/AppButton.vue';
 import { AppModule } from '@/store/modules/app';
 
 @Component({
-    components: { BarChart , AppInput },
+    components: { BarChart , AppInput, AppButton },
 })
 export default class DashboardPrediction extends Vue {
     private newData: IBarData[] = [];
@@ -26,13 +28,17 @@ export default class DashboardPrediction extends Vue {
         return AppModule.predictions;
     }
 
+    private handleClick(): void {
+        AppModule.postNewData(this.newData);
+    }
+
     private get loading(): boolean {
         return AppModule.loading;
     }
 
     @Watch('predictions')
     private onPredictionChange(val: IBarData[]): void {
-        this.newData = val;
+        this.newData = [...val];
     }
 
     private mounted(): void {

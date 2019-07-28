@@ -25,11 +25,11 @@ export default class BarChart extends Vue {
     private chartdata: any = {
         labels: this.labels,
         datasets: [{
-            fillColor: '#007AFF',
+            backgroundColor: '#007AFF',
             data: this.firstData,
         },
         {
-            fillColor: '#007AFF',
+            backgroundColor: '#007AFF',
             data: this.secondData,
         }],
     };
@@ -41,6 +41,9 @@ export default class BarChart extends Vue {
         scaleStartValue : -500,
         tooltips: {
             displayColors: false,
+        },
+        scales: {
+            minBarLength: 10,
         },
     };
 

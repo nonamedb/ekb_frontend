@@ -21,6 +21,19 @@ class App extends VuexModule {
         }
     }
 
+    @Action
+    public async postNewData(data: IBarData[]): Promise<void> {
+        try {
+            this.loadingStart();
+            const res = await http.post('prediction/', { data });
+            console.log(res);
+            this.setPredictions(res.data.data);
+            this.loadingEnd();
+        } catch (e) {
+            this.loadingEnd();
+        }
+    }
+
     @Mutation
     private setPredictions(predictions: IBarData[]): void {
         this.predictions = predictions;

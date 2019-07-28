@@ -9,7 +9,7 @@ import { Chart } from 'chart.js';
 export default class DonutChart extends Vue {
     private chartdata: any = {
         datasets: [{
-            data: [80, 20],
+            data: [60, 20, 20],
             backgroundColor: [
                 '#35A1FF',
                 '#1E3BB2',
@@ -19,12 +19,14 @@ export default class DonutChart extends Vue {
                 '#FF1053',
             ],
         }],
-        labels: ['lol', 'kek'],
+        labels: ['Программист', 'Юрист', 'Повар'],
     };
 
     private options: Chart.ChartOptions = {
         responsive: true,
-        legend: false,
+        legend: {
+            position: 'bottom',
+        },
         maintainAspectRatio: false,
         tooltips: {
             enabled: true,

@@ -25,7 +25,17 @@ class App extends VuexModule {
     public async postNewData(data: IBarData[]): Promise<void> {
         try {
             this.loadingStart();
-            const res = await http.post('prediction/', { data });
+            const formedData: any = {};
+            data.forEach((item) => {
+                formedData[item.abbr] = item.students;
+            });
+
+            const formData = new FormData();
+            console.log(formedData)
+            formData.append('data', JSON.stringify(formedData));
+            const res = await http.post('prediction/', formData, {
+                headers: { 'Content-Type': 'multipart/form-data' },
+            });
             console.log(res);
             this.setPredictions(res.data.data);
             this.loadingEnd();

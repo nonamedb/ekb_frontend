@@ -10,11 +10,6 @@ export default new Router({
     routes: [
         {
             path: '/',
-            name: 'Greeting',
-            component: () => import('./views/Greeting.vue'),
-        },
-        {
-            path: '/dashboard',
             name: 'Dashboard',
             component: () => import('./views/Dashboard.vue'),
             children: [

@@ -63,6 +63,7 @@ export default class Dashboard extends Vue {
     private mounted(): void {
         // @ts-ignore
         this.currentRoute = this.$route.name;
+        this.$router.push({ name: 'DashboardRegion' });
     }
 }
 </script>

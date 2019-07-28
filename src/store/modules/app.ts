@@ -13,8 +13,8 @@ class App extends VuexModule {
         try {
             this.loadingStart();
             const res = await http.get('prediction/');
-            console.log(res);
-            this.setPredictions(res);
+            console.log(res.data.data);
+            this.setPredictions(res.data.data);
             this.loadingEnd();
         } catch (e) {
             console.log(e);

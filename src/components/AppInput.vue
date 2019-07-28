@@ -25,8 +25,9 @@ export default class AppInput extends Vue {
     @Prop({ default: '' }) private placeholder!: string;
     @Prop({ default: () => [] }) private searchItems!: string[];
     @Prop({ default: 0 }) private searchStart!: number;
+    @Prop({ default: '' }) private value!: string;
 
-    private input: string = '';
+    private input: string = this.value;
     private focused: boolean = false;
     private visited: boolean = false;
     private isPasswordShown: boolean = false;
@@ -101,5 +102,21 @@ export default class AppInput extends Vue {
 
 .label {
     display: block;
+    color: #979797;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.input {
+    border: 1px solid #D8D8D8;
+    border-radius: 5px;
+    background-color: white;
+    width: 225px;
+    height: 40px;
+}
+
+.input:focus {
+    outline: none;
 }
 </style>

@@ -19,7 +19,7 @@ export default class BarChart extends Vue {
     }
 
     private get secondData(): number[] {
-        return this.data.map((item) => item.predictions);
+        return this.data.map((item) => item.prediction);
     }
 
     private chartdata: any = {

@@ -2,11 +2,11 @@
     <div class="dashboardPrediction">
         <BarChart v-if="!loading" :data="predictions" class="dashboardRegion__bar"></BarChart>
         <ul class="dashboardPrediction__inputs">
-            <li v-for="p in newData" :key="p.abbr">
+            <li class="inputs__item" v-for="p in newData" :key="p.abbr">
                 <AppInput v-model.number="p.students" :label="p.label"></AppInput>
             </li>
+            <AppButton class="dashboardPrediction__btn" :click="handleClick">Предсказать</AppButton>
         </ul>
-        <AppButton :click="handleClick">Предсказать</AppButton>
     </div>
 </template>
 
@@ -59,5 +59,15 @@ export default class DashboardPrediction extends Vue {
 
 .dashboardPrediction__inputs {
     list-style-type: none;
+    margin-top: 0;
+}
+
+.dashboardPrediction__btn {
+    margin-top: 15px;
+    height: 40px;
+}
+
+.inputs__item:not(:first-child) {
+    margin-top: 10px;
 }
 </style>

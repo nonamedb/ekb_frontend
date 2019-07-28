@@ -31,11 +31,11 @@ export default class AppButton extends Vue {
     cursor: pointer;
     box-sizing: border-box;
     font-family: inherit;
-    background-color: transparent;
+    background-color: #007AFF;
     border: none;
     padding: 0;
     width: 100%;
-    font-weight: 600;
-    border-radius: 3px;
+    border-radius: 5px;
+    color: white;
 }
 </style>

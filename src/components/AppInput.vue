@@ -114,6 +114,9 @@ export default class AppInput extends Vue {
     background-color: white;
     width: 225px;
     height: 40px;
+    padding-left: 15px;
+    font-size: 12px;
+    color: #979797;
 }
 
 .input:focus {

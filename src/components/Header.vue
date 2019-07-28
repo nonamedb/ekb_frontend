@@ -1,9 +1,12 @@
 <template>
     <header class="header">
         <div class="header__icon icon-menu"></div>
-        <div class="header__icon icon-calendary"></div>
+        <div class="header__icon icon-calendar"></div>
         <div class="header__icon icon-recent"></div>
         <div class="header__icon icon-search"></div>
+        <div class="header__logo">
+            <img src="/logo.svg" alt="logo">
+        </div>
         <div class="header__icon icon-favourites"></div>
         <div class="header__icon icon-sources"></div>
         <div>
@@ -33,6 +36,8 @@ export default class Header extends Vue {
     align-items: center;
     grid-column-gap: 30px;
     box-sizing: border-box;
+    position: sticky;
+    top: 0;
 }
 
 .header__icon {
@@ -42,5 +47,9 @@ export default class Header extends Vue {
 
 .icon-favourites {
     grid-column: 6 / 7;
+}
+
+.header__logo {
+    margin: auto;
 }
 </style>
